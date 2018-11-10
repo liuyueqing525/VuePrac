@@ -1,17 +1,35 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <HelloWorld msg='<span style="color:#6cf">Hello,World</span>'/>
+      <ev :age="goose" @msg="msg">
+        <h3 slot='1'>我要❤加入一个东西</h3>
+      </ev> 
+
+
   </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
+import ev from './components/events.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    HelloWorld,
+    ev,
+  },
+  data (){
+    return {
+      goose:123, 
+    }
+  },
+  methods:{
+    msg:function(){
+      this.goose++;
+      window.console.log(this.Vuex);
+    }
   }
 }
 </script>
